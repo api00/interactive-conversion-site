@@ -18,7 +18,7 @@
     
     <form action="<?php echo htmlspecialchars( $_SERVER['PHP_SELF']) ?>" method="POST"  onsubmit="return isValid()" name="LForm">
    
-      <select name="convert" id="Rname">
+      <select name="convert_s" id="Rname">
 
         <option value="">Select one</option>
         <option value="feetToinch" >feet To inch</option>
@@ -26,17 +26,17 @@
         <option value="KgTog">kg To g</option>
     
         </select> 
-        <span id="Cerror" style="color: red;"> * <?php echo $convertEr;  ?></span> <br> <br> <br> <br>
+        <span id="Cerror" style="color: red;"> * <?php echo $convert_sEr;  ?></span> <br> <br> <br> <br>
         <fieldset>
-            <legend>feet to inch </legend>
-            <label for="feet">feet :</label>
+            <legend>Conversion </legend>
+            <label for="value1">value 1 :</label>
 
-<input type="text" id="feet" name="feet">  <br> <br> <br> 
-<label for="inch">inch :</label>
-<input type="text" value="" name="inch">  <br>
+<input type="text" id="value1" name="value1">  <br> <br> <br> 
+<label for="value2">value 2 :</label>
+<input type="text" value="" name="value2">  <br>
            
         </fieldset>
-        <fieldset>
+        <!-- <fieldset>
             <legend>Kg to g </legend>
             <label for="kg">Kg :</label>
 
@@ -44,7 +44,7 @@
 <label for="g">g :</label>
 <input type="text" value="" name="g">   <br>
            
-        </fieldset>
+        </fieldset> -->
         <input type="submit" value="store">
 
 </form>

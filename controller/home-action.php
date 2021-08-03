@@ -4,21 +4,23 @@ $valueEr= "";
 $flag= false;
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
-if (empty($_POST["value"])) {
+if (empty($_GET["value"])) {
 
     $valueEr = "value is required";
     $flag = true;
   }
-if (empty($_POST["convert"])) {
+if (empty($_GET["convert_s"])) {
 
     $convertEr = "convert rate is required";
     $flag = true;
   }
   if (!$flag) {
  
-    $value =  input($_POST["value"]);
-    $convert =  input($_POST["convert"]);
+    $value =  input($_GET["value"]);
+    $convert =  input($_GET["convert_s"]);
   }
+
+
 
 }
   function input($v)

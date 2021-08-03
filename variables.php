@@ -1,52 +1,41 @@
 <?php 
 
-include "model/dbinsert.php";
+include "model/model.php";
+
+$flag = false;
+$convert_s = $inch =  $feet = $kg = $g = "";
+$convert_sEr = $inchEr = $feetEr = $kgEr = $gEr = "";
+
  
    if ($_SERVER["REQUEST_METHOD"] == "POST") {
      
 
-    $flag = false;
-    $convert = $inch =  $feet = $kg = $g = "";
-    $convertEr = $inchEr = $feetEr = $kgEr = $gEr = "";
-
- if (empty($_POST["convert"])) {
-    $convertEr = "convert value is required";
+ if (empty($_POST["convert_s"])) {
+    $convert_sEr = "convert_s value is required";
       $flag = true;
     
   
   }
- if (empty($_POST["inch"])) {
-    $inchEr = "inch is required";
+ if (empty($_POST["value1"])) {
+    $inchEr = "value1 is required";
       $flag = true;
     
   
   }
- if (empty($_POST["feet"])) {
-    $feetEr = "feet value is required";
+ if (empty($_POST["value2"])) {
+    $feetEr = " value 2 is required";
       $flag = true;
     
   
   }
- if (empty($_POST["kg"])) {
-    $kgEr = "kg value is required";
-      $flag = true;
-    
-  
-  }
- if (empty($_POST["g"])) {
-    $gEr = "G value is required";
-      $flag = true;
-    
-  
-  }
+ 
   if(!$flag){
-    $convert = $_POST["convert"];
-    $inch = $_POST["inch"];
-    $feet = $_POST["feet"];
-    $kg = $_POST["kg"];
-    $g = $_POST["g"];
+    $convert_s = $_POST["convert_s"];
+    $value1 = $_POST["value1"];
+    $value2 = $_POST["value2"];
+    
   
-    add($inch,$feet,$kg,$g);
+    add($convert_s,$value1,$value2);
   
 
   }

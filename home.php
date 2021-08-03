@@ -4,27 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="home-js-validation.js"></script>
     <title>Document</title>
     <script src="view/js/home-js-validation.js"></script>
 </head>
 <body>
-    <?php include "header.php"?>
+    <?php include "header.php";?>
     <h2>Conveter</h2>
-<form action="<?php echo htmlspecialchars( $_SERVER['PHP_SELF']) ?>" method="GET" onsubmit="return isValid()" name="LForm">
+<form action="home-action-2.php" method="GET" name="Sform" onsubmit="Result(this); return false;">
 <?php include "controller/home-action.php"; ?>
-<select name="convert" id="Rname">
+<select name="convert_s" id="Rname">
         <option value="">Select one</option>
         <option value="feetToinch" >feet To inch</option>
-        <option value="inchTofeet">inch To feet</option>
+        <option value="KgTog">Kg To G</option>
     
-        </select>  <span id="Uerror" style="color: red;"> * <?php echo $usernameEr;  ?></span> <br> <br> <br> <br>
+        </select>  <span id="Uerror" style="color: red;"> * <?php echo $valueEr;  ?></span> <br> <br> <br> <br>
         <label for="value">value :</label>
 
-        <input type="number" id="value" name="value">  <span id="Perror" style="color: red;"> * <?php echo $valueEr;  ?></span> <br> <br><br> <br> 
+        <input type="text" id="value" name="value">  <span id="Perror" style="color: red;"> * <?php echo $valueEr;  ?></span> <br> <br><br> <br>
+        <div id="result"> Ans Willbe displayed here ...</div> 
         <input type="submit" value="convert">
 </form>
-
+<script >
+                  function Result(pform) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function(){
+      document.getElementById("result").innerHTML=this.responseText;
+    }
+    xhttp.open("GET",pform.action + "?convert_s=" +pform.username.value);
+    // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send();
+       }
+              </script>
 
 </body>
 </html>
